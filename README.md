@@ -1,26 +1,22 @@
-# recomendolivros
+# iBotsDashBoard
 
-Projeto desenvolvido para trabalho do terceiro ano do ensino médio (2020) para ser apresentado na MOSTRA SESI cujo o tema era Inteligência Artificial. A problématica apresentada pelo grupo consistia no uso diverso de sistemas de recomendação e sua influência nos usuários. Diante disso, foi emulado um sistema recomendador de livros, utilizando o algoritmo tf-idf (do inglês term frequency–inverse document frequency), com dataset desenvolvido pelos alunos integrantes do grupo.
+Dashboard built for data game analysis based on [loganalyzer](https://github.com/opusymcomp/loganalyzer3), a log analysis tool.
 
-Bibliotecas utilizadas:
-- pandas
-- streamlit
-- Pillow
-- sklearn
+Others functions:
+- work with rcssserver CSVSaver fuctions (TODO);
+- work with our (iBots) internal data extractor, based on json files (TODO).
 
-Projeto bastante básico, baseado em alguns tutoriais, desenvolvido com pouca experiência nas tecnologias.
-Deploy foi realizado na plataforma heroku, onde continua hospedado no endereço: https://recomendolivros.herokuapp.com/
 
 ## Run locally:
 
 Clone the proeject:
 ```console
-git clone https://github.com/erarich/recomendolivros.git
+git clone https://github.com/ibotsuft/iBotsDashboard.git
 ```
 
 Enter the project's directory:
 ```console
-cd recomendolivros
+cd iBotsDashboard
 ```
 
 Create a virtual enviroment:
