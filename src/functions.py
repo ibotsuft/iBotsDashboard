@@ -7,7 +7,7 @@ def load_data(file_path):
 
 
 def load_sample_file():
-    df = load_data('./data/IBots_x_HeliosBase_original.csv')
+    df = load_data('IBots_x_HeliosBase_original.csv')
     df['date'] = pd.to_datetime(df['date'], format='%Y%m%d%H%M')
     df_sorted = df.sort_values(by='date')
 
