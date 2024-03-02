@@ -40,6 +40,8 @@ def main():
         data_array = ["params"]
         dataframes = []
         mean_dataframes = []
+        median_dataframes = []
+        total_dataframes = []
 
         for file in new_csv_files:
             dataframe = pd.read_csv(file)
@@ -54,19 +56,49 @@ def main():
         for dataframe in dataframes:
             transposed_df = dataframe.transpose()
             mean_df = transposed_df.mean(axis=1)
+            median_df = transposed_df.median(axis=1)
+            total_df = transposed_df.sum(axis=1)
+
             mean_dataframes.append(mean_df)
+            median_dataframes.append(median_df)
+            total_dataframes.append(total_df)
 
         df_means = pd.DataFrame({
             'params': first_line['paramns'],
         })
 
+        df_medians = pd.DataFrame({
+            'params': first_line['paramns'],
+        })
+
+        df_totals = pd.DataFrame({
+            'params': first_line['paramns'],
+        })
+
         st.write("Compare the game sets:")
+
         for i, df in enumerate(mean_dataframes):
             for col_data in df.items():
                 new_col_name = f"{data_array[i + 1]}"
                 df_means[new_col_name] = df.values
 
-        st.dataframe(df_means)
+        for i, df in enumerate(median_dataframes):
+            for col_data in df.items():
+                new_col_name = f"{data_array[i + 1]}"
+                df_medians[new_col_name] = df.values
+
+        for i, df in enumerate(total_dataframes):
+            for col_data in df.items():
+                new_col_name = f"{data_array[i + 1]}"
+                df_totals[new_col_name] = df.values
+
+        stats_choice = st.selectbox("Pick a stat", ["mean", "median", "total"])
+        if stats_choice == 'mean':
+            st.dataframe(df_means)
+        elif stats_choice == 'median':
+            st.dataframe(df_medians)
+        else:
+            st.dataframe(df_totals)
 
 
 if __name__ == '__main__':
