@@ -77,7 +77,6 @@ def main():
             df_new = pd.DataFrame.from_dict(
                 data_new, orient='index', columns=keys_to_use)
 
-            # Escolha da estatística
             stats_choice = st.selectbox(
                 "Pick a stat to compare", ["mean", "median", "total"])
 
